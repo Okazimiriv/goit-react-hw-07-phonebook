@@ -10,7 +10,7 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const handleInput = event => {
-    dispatch(filterContacts(event.target.value));
+    dispatch(filterContacts(event.target.value.toLowerCase().trim()));
   };
 
   return (
