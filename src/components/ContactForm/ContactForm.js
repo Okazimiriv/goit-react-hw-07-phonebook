@@ -39,22 +39,8 @@ const ContactForm = () => {
   const dispatch = useDispatch();
   const listContacts = useSelector(getContacts);
 
-  // const handleChange = evt => {
-  //   switch (evt.target.name) {
-  //     case 'name':
-  //       setName(evt.target.value);
-  //       break;
-  //     case 'number':
-  //       setNumber(evt.target.value);
-  //       break;
-  //     default:
-  //       return;
-  //   }
-  // };
-
   const handleSubmit = contactData => {
     const { name, number } = contactData;
-
     const newContact = { name, number };
     if (
       listContacts.find(
