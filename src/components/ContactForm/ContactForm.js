@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
-
+// import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
