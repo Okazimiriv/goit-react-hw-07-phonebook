@@ -1,11 +1,11 @@
 // import { ReactComponent as DeleteIcon } from '../../icons/remove.svg';
 // import { DeleteButton } from '../ContactList/ContactList.styled';
 import { useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { useDispatch } from 'react-redux';
 // import { deleteContact } from 'redux/contactsSlice';
 import { deleteContact } from 'redux/operations';
-import { getIsLoading } from 'redux/selectors';
+import { selectIsLoading } from 'redux/selectors';
 import { IoClose } from 'react-icons/io5';
 import {
   ContactListBlock,
@@ -19,9 +19,9 @@ import {
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
-  const isLoading = useSelector(getIsLoading);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const isLoading = useSelector(selectIsLoading);
 
   const visibleContacts = () => {
     return contacts.filter(({ name }) =>

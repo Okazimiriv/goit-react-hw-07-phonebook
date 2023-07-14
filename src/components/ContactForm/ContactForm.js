@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 // import { addContact } from 'redux/contactsSlice';
 import { addContact } from 'redux/operations';
 import { Formik } from 'formik';
@@ -37,7 +37,7 @@ const schema = yup.object().shape({
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const listContacts = useSelector(getContacts);
+  const listContacts = useSelector(selectContacts);
 
   const handleSubmit = contactData => {
     const { name, number } = contactData;
