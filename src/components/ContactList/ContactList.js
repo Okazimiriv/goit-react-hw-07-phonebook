@@ -5,6 +5,7 @@ import { getContacts, getFilter } from 'redux/selectors';
 import { useDispatch } from 'react-redux';
 // import { deleteContact } from 'redux/contactsSlice';
 import { deleteContact } from 'redux/operations';
+import { getIsLoading } from 'redux/selectors';
 import { IoClose } from 'react-icons/io5';
 import {
   ContactListBlock,
@@ -17,9 +18,10 @@ import {
 } from './ContactList.styled';
 
 const ContactList = () => {
+  const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
 
   const visibleContacts = () => {
     return contacts.filter(({ name }) =>
@@ -29,7 +31,7 @@ const ContactList = () => {
 
   return (
     <>
-      {contacts.length === 0 && (
+      {!isLoading && contacts.length === 0 && (
         <Text textAlign="center">There are no any contacts ...😕 </Text>
       )}
       <ContactListBlock>

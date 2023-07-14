@@ -7,6 +7,9 @@ import { Container } from './App.styled';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter';
 import ContactList from 'components/ContactList/ContactList';
+import { ThreeDots } from 'react-loader-spinner';
+import { Loader } from 'components/Loader/Loader.styled';
+import { ErrorMessage } from './ErorrMessage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,28 +26,13 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && (
+        <Loader>
+          <ThreeDots color="lightseagreen" />
+        </Loader>
+      )}
       <ContactList />
-      {/* {isLoading && <b>Loading сontacts...</b>}
-      {error && <b>{error}</b>} */}
-      {/* <p>{items.length > 0 && JSON.stringify(items, null, 2)}</p> */}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </Container>
   );
 };
-
-// import { Container } from './App.styled';
-// import ContactForm from 'components/ContactForm/ContactForm';
-// import Filter from 'components/Filter';
-// import ContactList from 'components/ContactList';
-
-// export const App = () => {
-//   return (
-//     <Container>
-//       <h1>Phonebook</h1>
-//       <ContactForm />
-//       <h2>Contacts</h2>
-//       <Filter />
-//       <ContactList />
-//     </Container>
-//   );
-// };

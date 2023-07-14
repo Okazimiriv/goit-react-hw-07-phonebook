@@ -5,7 +5,7 @@ export const ContactListBlock = styled.ul`
 `;
 
 export const ContactItem = styled.li`
-  width: 400px;
+  width: 500px;
   padding: 5px;
   display: flex;
   align-items: center;
