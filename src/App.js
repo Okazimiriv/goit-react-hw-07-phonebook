@@ -28,7 +28,7 @@ export const App = () => {
       <Filter />
       {isLoading && !error && (
         <Loader>
-          <ThreeDots color="lightseagreen" />
+          <ThreeDots color="lightseagreen" width="50" />
         </Loader>
       )}
       <ContactList />
