@@ -37,24 +37,24 @@ const schema = yup.object().shape({
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const listContacts = useSelector(selectContacts);
+  // const listContacts = useSelector(selectContacts);
 
   const handleSubmit = contactData => {
-    const { name, number } = contactData;
-    const newContact = { name, number };
-    if (
-      listContacts.find(
-        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
-      )
-    ) {
-      toast.warn(`${newContact.name} is already in contacts`, {
-        position: toast.POSITION.TOP_CENTER,
-        icon: false,
-      });
-      return;
-    }
+    // const { name, number } = contactData;
+    // const newContact = { name, number };
+    // if (
+    //   listContacts.find(
+    //     contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+    //   )
+    // ) {
+    //   toast.warn(`${newContact.name} is already in contacts`, {
+    //     position: toast.POSITION.TOP_CENTER,
+    //     icon: false,
+    //   });
+    //   return;
+    // }
 
-    dispatch(addContact(name, number));
+    dispatch(addContact(contactData));
   };
 
   return (

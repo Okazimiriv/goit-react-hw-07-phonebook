@@ -15,21 +15,14 @@ import {
   ContactName,
   DeleteButton,
   Text,
-  // ContactButton,
 } from './ContactList.styled';
 
 const ContactList = () => {
-  const dispatch = useDispatch();
   // const contacts = useSelector(selectContacts);
-  const contacts = useSelector(selectVisibleContacts);
   // const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectVisibleContacts);
   const isLoading = useSelector(selectIsLoading);
-
-  // const visibleContacts = () => {
-  //   return contacts.filter(({ name }) =>
-  //     name.toLowerCase().includes(filter.toLowerCase())
-  //   );
-  // };
 
   return (
     <>
@@ -40,7 +33,6 @@ const ContactList = () => {
         {contacts.length > 0 &&
           contacts.map(({ id, name, number }) => (
             <ContactItem key={id}>
-              {' '}
               <ContactInfo>
                 {name}:<ContactName>{number}</ContactName>
               </ContactInfo>
