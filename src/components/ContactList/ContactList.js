@@ -1,7 +1,8 @@
 // import { ReactComponent as DeleteIcon } from '../../icons/remove.svg';
 // import { DeleteButton } from '../ContactList/ContactList.styled';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
+// import { selectContacts, selectFilter } from 'redux/selectors';
+import { selectVisibleContacts } from 'redux/selectors';
 import { useDispatch } from 'react-redux';
 // import { deleteContact } from 'redux/contactsSlice';
 import { deleteContact } from 'redux/operations';
@@ -19,15 +20,16 @@ import {
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
+  // const contacts = useSelector(selectContacts);
+  const contacts = useSelector(selectVisibleContacts);
+  // const filter = useSelector(selectFilter);
   const isLoading = useSelector(selectIsLoading);
 
-  const visibleContacts = () => {
-    return contacts.filter(({ name }) =>
-      name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
+  // const visibleContacts = () => {
+  //   return contacts.filter(({ name }) =>
+  //     name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
 
   return (
     <>
@@ -36,7 +38,7 @@ const ContactList = () => {
       )}
       <ContactListBlock>
         {contacts.length > 0 &&
-          visibleContacts().map(({ id, name, number }) => (
+          contacts.map(({ id, name, number }) => (
             <ContactItem key={id}>
               {' '}
               <ContactInfo>
